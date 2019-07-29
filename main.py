@@ -1,14 +1,13 @@
-import requests
 import json
-from flask import Flask
-
-from config import token
-from spreadsheet import auth, append_row
-from utils import timestamp
-
 import traceback
+
+import requests
+from flask import Flask
 from logzero import logger
 
+from config import token
+from spreadsheet import append_row, auth
+from utils import timestamp
 
 app = Flask(__name__)
 gs = auth()

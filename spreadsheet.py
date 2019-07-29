@@ -27,4 +27,3 @@ def append_row(gs, values: list):
     )
 
     return r
-

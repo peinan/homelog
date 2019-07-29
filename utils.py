@@ -1,4 +1,4 @@
-from datetime import datetime, timezone, timedelta
+from datetime import datetime, timedelta, timezone
 
 
 def now():
@@ -10,4 +10,3 @@ def timestamp():
     ts = now().strftime('%Y-%m-%d %H:%M:%S')
 
     return ts
-
