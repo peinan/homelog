@@ -6,6 +6,9 @@ from config import token
 from spreadsheet import auth, append_row
 from utils import timestamp
 
+import traceback
+from logzero import logger
+
 
 app = Flask(__name__)
 gs = auth()
@@ -22,7 +25,10 @@ def loggin_devices():
         resp['illuminance']['val'],
         resp['motion']['val'],
     ]
-    r = append_row(gs, values)
+    try:
+        r = append_row(gs, values)
+    except:
+        logger.error(traceback.format_exc())
 
     return json.dumps(r)
 
