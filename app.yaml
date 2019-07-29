@@ -1,0 +1,3 @@
+service: homelog
+runtime: python37
+entrypoint: gunivorn -b ;$PORT main:app

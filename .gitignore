@@ -1,0 +1,7 @@
+*.swp
+*.swo
+
+Makefile
+config.py
+key.json
+__pycache__

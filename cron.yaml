@@ -1,0 +1,5 @@
+cron:
+- description: "logging job"
+  url: /logging/devices
+  schedule: every 10 minutes
+  timezone: Asia/Tokyo
