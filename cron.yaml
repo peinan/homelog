@@ -1,6 +1,6 @@
 cron:
 - description: "logging job"
   url: /logging/devices
-  schedule: every 10 minutes
+  schedule: every 5 minutes
   target: homelog
   timezone: Asia/Tokyo
