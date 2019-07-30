@@ -9,8 +9,8 @@ from config import token
 from spreadsheet import append_row, auth
 from utils import timestamp
 
+
 app = Flask(__name__)
-gs = auth()
 
 @app.route('/logging/devices')
 def loggin_devices():
@@ -24,10 +24,19 @@ def loggin_devices():
         resp['illuminance']['val'],
         resp['motion']['val'],
     ]
+
+    gs = None
+    r = {}
+
     try:
-        r = append_row(gs, values)
+        gs = auth()
     except:
-        logger.error(traceback.format_exc())
+        logger.error('auth failed: ' + traceback.format_exc())
+    if gs:
+        try:
+            r = append_row(gs, values)
+        except:
+            logger.error(f'apeend failed: ' + traceback.format_exc())
 
     return json.dumps(r)
 
